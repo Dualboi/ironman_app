@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String         @id @default(uuid())
+  email        String         @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime       @default(now())
+  plans        TrainingPlan[]
+  profile      UserProfile?
+}
+
+model UserProfile {
+  id         String @id @default(uuid())
+  userId     String @unique
+  bodyWeight Float
+  age        Int
+  gender     Gender
+  user       User   @relation(fields: [userId], references: [id])
+}
+
+model TrainingPlan {
+  id        String         @id @default(uuid())
+  userId    String
+  name      String
+  goalType  GoalType
+  startDate DateTime
+  endDate   DateTime
+  goals     TrainingGoal[]
+  user      User           @relation(fields: [userId], references: [id])
+  weeks     Week[]
+}
+
+model Week {
+  id             String          @id @default(uuid())
+  trainingPlanId String
+  weekNumber     Int
+  startDate      DateTime
+  sessions       Session[]
+  logs           SuggestionLog[]
+  trainingPlan   TrainingPlan    @relation(fields: [trainingPlanId], references: [id])
+}
+
+model WorkoutType {
+  id       String    @id @default(uuid())
+  name     String
+  sessions Session[]
+}
+
+model Session {
+  id              String          @id @default(uuid())
+  weekId          String
+  workoutTypeId   String
+  dayOfWeek       Int
+  intensity       Intensity
+  durationMinutes Int
+  distanceKm      Float?
+  isCompleted     Boolean         @default(false)
+  week            Week            @relation(fields: [weekId], references: [id])
+  workoutType     WorkoutType     @relation(fields: [workoutTypeId], references: [id])
+  logs            SuggestionLog[]
+}
+
+model TrainingGoal {
+  id             String       @id @default(uuid())
+  trainingPlanId String
+  goalType       String
+  targetValue    Float
+  unit           String
+  trainingPlan   TrainingPlan @relation(fields: [trainingPlanId], references: [id])
+}
+
+model SuggestionLog {
+  id            String     @id @default(uuid())
+  weekId        String
+  sessionId     String
+  actionType    ActionType
+  description   String
+  previousValue Json?
+  newValue      Json?
+  createdAt     DateTime   @default(now())
+  session       Session    @relation(fields: [sessionId], references: [id])
+  week          Week       @relation(fields: [weekId], references: [id])
+}
+
+enum Gender {
+  male
+  female
+  other
+}
+
+enum Intensity {
+  Recovery
+  Zone2
+  Tempo
+  Threshold
+  sprint
+  TestOrRace
+}
+
+enum GoalType {
+  totalTime
+  totalDistance
+}
+
+enum ActionType {
+  MOVE
+  ADD
+  UPDATE
+  REMOVE
+}

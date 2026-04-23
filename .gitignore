@@ -1,0 +1,4 @@
+/node_modules/
+/ironman_backend/node_modules/
+/.env
+/ironman_backend/.env
