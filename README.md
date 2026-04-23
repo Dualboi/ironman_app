@@ -1,3 +1,6 @@
+# IRONMAN TRAINING MADE EASY
+## This platform once built will be a REST API Web Application capable of creating a Ironman training schedule that is automatically optimised to your needs both time and ability.
+
 # Database (Supabase + prisma)
 
 ## Environment setup
