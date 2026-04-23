@@ -6,6 +6,7 @@ With each part of the system split into three layers:
 * Database
 * Backend
 * Frontend
+
 I plan on launching a fully developed and scallable web app ready for production.
 
 # Database (Supabase + prisma)
