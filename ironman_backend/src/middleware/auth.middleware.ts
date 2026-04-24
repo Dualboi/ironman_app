@@ -1,96 +1,44 @@
-// backend/src/middleware/auth.middleware.ts
+import { createClient } from "@supabase/supabase-js";
+import { Request, Response, NextFunction } from "express";
 
-import jwt, { JwtHeader, SigningKeyCallback } from 'jsonwebtoken';
-import JwksClient from "jwks-rsa"
-import { Request, Response, NextFunction } from 'express'
-
-// Extend Express Request to include user
 export interface AuthenticatedRequest extends Request {
-    user?: any;
-    userId?: string;
+  user?: any;
+  userId?: string;
 }
 
-// Replace with your actaul Supabase project URL in the env file,
-// its done this way to avoid hardcoding sensitive info in the codebase
-const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_URL = process.env.SUPABASE_URL!;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY!;
 
-if (!SUPABASE_URL) {
-    throw new Error("Missing SUPABASE_URL in environnebt  variables")
-}
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// Create JWKS client
-const client = JwksClient({
-    jwksUri: `${SUPABASE_URL}/auth/v1/keys`,
-    cache: true,
-    cacheMaxEntries: 5,
-    cacheMaxAge: 10 * 60 * 10000, // 10 minutes
-})
-
-// Function to get signing key
-const getKey = (
-    header: JwtHeader,
-    callback: SigningKeyCallback
+export const authMiddleware = async (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
 ) => {
-    if (!header.kid) {
-        return callback(new Error("Missing kid in token header"))
+  try {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({ error: "Missing token" });
     }
 
-    client.getSigningKey(header.kid, (err, key) => {
-        if (err) {
-            return callback(err)
-        }
+    const token = authHeader.split(" ")[1];
 
-        const signingKey = key?.getPublicKey()
-        callback(null, signingKey)
-    })
-}
+    const { data, error } = await supabase.auth.getUser(token);
 
-// Middleware to verify JWT
-export const authMiddleware = (
-    req: AuthenticatedRequest,
-    res: Response,
-    next: NextFunction
-) => {
-    try {
-        const authHeader = req.headers.authorization
-
-        if (!authHeader || !authHeader.startsWith("Bearer ")) {
-            return res.status(401).json({
-                error: "Unauthorized",
-                message: "Missing or invalid Authorization header"
-            })
-        }
-
-        const token = authHeader.split(" ")[1]
-
-        jwt.verify(
-            token,
-            getKey,
-            {
-                algorithms: ["RS256"],
-            },
-            (err, decoded) => {
-                if (err || !decoded) {
-                    return res.status(401).json({
-                        error: "Unauthorized",
-                        message: "Invalid or expired token"
-                    })
-                }
-                // Attach decoded token to request
-                req.user = decoded
-
-                // Supabase user ID is in `sub`
-                req.userId = (decoded as any).sub
-
-                next()
-            }
-        )
-    } catch (error) {
-        console.error("Auth middleware error:", error)
-
-        return res.status(500).json({
-            error: "Internal Server Error",
-            message: "Authentication failed",
-        })
+    if (error || !data.user) {
+      return res.status(401).json({
+        error: "Invalid or expired token",
+      });
     }
-}
+
+    req.user = data.user;
+    req.userId = data.user.id;
+
+    next();
+  } catch (err) {
+    console.error("Auth error:", err);
+    res.status(500).json({ error: "Auth failure" });
+  }
+};
