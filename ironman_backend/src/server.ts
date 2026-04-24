@@ -1,0 +1,31 @@
+import dotenv from "dotenv"
+import express from "express"
+import cors from "cors"
+
+dotenv.config();
+
+const app = express()
+
+// Importnt change to Netlify URL once deployed, for local development this is fine
+// CORS (frontend > backend)
+app.use(cors({
+  origin: "http://localhost:5173"
+}))
+
+// body parser
+app.use(express.json())
+
+// Test route for debugging
+app.get("/",(req, res) => {
+    res.send("Hello from the backend!")
+})
+
+// TODO: add routes here
+// app.use("/api/user", userRoutes)
+// app.use("/api/plan", planRoutes)
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+})

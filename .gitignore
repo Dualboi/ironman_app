@@ -2,3 +2,4 @@
 /ironman_backend/node_modules/
 /.env
 /ironman_backend/.env
+/ironman_frontend/.env

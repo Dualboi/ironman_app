@@ -2,7 +2,7 @@
 
 import jwt, { JwtHeader, SigningKeyCallback } from 'jsonwebtoken';
 import JwksClient from "jwks-rsa"
-import express, { Request, Response, NextFunction } from 'express'
+import { Request, Response, NextFunction } from 'express'
 
 // Extend Express Request to include user
 export interface AuthenticatedRequest extends Request {
@@ -10,8 +10,9 @@ export interface AuthenticatedRequest extends Request {
     userId?: string;
 }
 
-// Replace with your actaul Supabase project URL
-const SUPABASE_URL = "https://fwghmbgkylgaakpqjpya.supabase.co";
+// Replace with your actaul Supabase project URL in the env file,
+// its done this way to avoid hardcoding sensitive info in the codebase
+const SUPABASE_URL = process.env.SUPABASE_URL;
 
 if (!SUPABASE_URL) {
     throw new Error("Missing SUPABASE_URL in environnebt  variables")
