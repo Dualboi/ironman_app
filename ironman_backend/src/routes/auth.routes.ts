@@ -12,20 +12,15 @@ router.post("/me", authMiddleware, async (req: AuthenticatedRequest, res) => {
     return res.status(400).json({ error: "User email missing from token" });
   }
 
-  // ensures user exists in the DB
-  let user = await prisma.user.findUnique({
+  const user = await prisma.user.upsert({
     where: { id: userId },
+    update: { email },
+    create: {
+      id: userId,
+      email,
+      name: "",
+    },
   });
-
-  if (!user) {
-    user = await prisma.user.create({
-      data: {
-        id: userId,
-        email,
-        name: "",
-      },
-    });
-  }
 
   return res.json({
     message: "User authenticated",
