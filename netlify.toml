@@ -1,0 +1,4 @@
+[build]
+  base = "ironman_frontend/vite-project"
+  publish = "dist"
+  command = "npm run build"
