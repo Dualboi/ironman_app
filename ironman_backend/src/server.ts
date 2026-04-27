@@ -7,13 +7,17 @@ import authRoutes from "./routes/auth.routes";
 
 const app = express();
 
-const allowedOrigins = process.env.CORS_ORIGINS?.split(",") || [
+const allowedOrigins = [
   "http://localhost:5173",
+  "https://ironman-app.onrender.com",
 ];
 
-app.use(cors({
-  origin: "*",
-}));
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 
 app.options("*", cors());
 
