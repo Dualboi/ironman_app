@@ -1,33 +1,42 @@
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 dotenv.config();
-import express from "express"
-import cors from "cors"
+
+import express from "express";
+import cors from "cors";
 import authRoutes from "./routes/auth.routes";
 
+const app = express();
 
-const app = express()
+const allowedOrigins = process.env.CORS_ORIGINS?.split(",") || [
+  "http://localhost:5173",
+];
 
-// Importnt change to Netlify URL once deployed, for local development this is fine
-// CORS (frontend > backend)
-app.use(cors({
-  origin: "http://localhost:5173"
-}))
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
 
-// body parser
-app.use(express.json())
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
 
-// Test route for debugging
-app.get("/",(req, res) => {
-    res.send("Hello from the backend!")
-})
+      console.log("Blocked CORS origin:", origin);
+      return callback(new Error("Blocked by CORS"));
+    },
+    credentials: true,
+  })
+);
 
-// TODO: add routes here
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello from the backend!");
+});
 
 app.use(authRoutes);
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+  console.log(`Server is running on port ${PORT}`);
+});

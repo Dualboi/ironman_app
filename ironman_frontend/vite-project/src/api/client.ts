@@ -1,23 +1,18 @@
-const API_URL = "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL;
 
-export async function apiFetch(
-  path: string,
-  token: string,
-  options?: RequestInit
-) {
+export const apiFetch = async (path: string, token: string, options = {}) => {
   const res = await fetch(`${API_URL}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`, // REQUIRED for middleware logic
-      ...(options?.headers || {}),
+      Authorization: `Bearer ${token}`,
+      ...(options as any).headers,
     },
   });
 
   if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.message || "API error");
+    throw new Error("API request failed");
   }
 
   return res.json();
-}
+};
