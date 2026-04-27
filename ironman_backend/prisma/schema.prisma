@@ -8,22 +8,23 @@ datasource db {
 }
 
 model User {
-  id           String         @id
-  email        String         @unique
-  name         String
-  createdAt    DateTime       @default(now())
+  id        String         @id
+  email     String         @unique
+  name      String
+  createdAt DateTime       @default(now())
 
-  plans        TrainingPlan[]
-  profile      UserProfile?
+  plans     TrainingPlan[]
+  profile   UserProfile?
 }
 
 model UserProfile {
-  id         String @id @default(uuid())
-  userId     String @unique
+  id         String  @id @default(uuid())
+  userId     String  @unique
   bodyWeight Float
   age        Int
   gender     Gender
-  user       User   @relation(fields: [userId], references: [id])
+
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model TrainingPlan {
@@ -33,8 +34,9 @@ model TrainingPlan {
   goalType  GoalType
   startDate DateTime
   endDate   DateTime
+
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   goals     TrainingGoal[]
-  user      User           @relation(fields: [userId], references: [id])
   weeks     Week[]
 }
 
@@ -43,14 +45,16 @@ model Week {
   trainingPlanId String
   weekNumber     Int
   startDate      DateTime
+
+  trainingPlan   TrainingPlan    @relation(fields: [trainingPlanId], references: [id], onDelete: Cascade)
   sessions       Session[]
   logs           SuggestionLog[]
-  trainingPlan   TrainingPlan    @relation(fields: [trainingPlanId], references: [id])
 }
 
 model WorkoutType {
   id       String    @id @default(uuid())
   name     String
+
   sessions Session[]
 }
 
@@ -63,7 +67,8 @@ model Session {
   durationMinutes Int
   distanceKm      Float?
   isCompleted     Boolean         @default(false)
-  week            Week            @relation(fields: [weekId], references: [id])
+
+  week            Week            @relation(fields: [weekId], references: [id], onDelete: Cascade)
   workoutType     WorkoutType     @relation(fields: [workoutTypeId], references: [id])
   logs            SuggestionLog[]
 }
@@ -74,7 +79,8 @@ model TrainingGoal {
   goalType       String
   targetValue    Float
   unit           String
-  trainingPlan   TrainingPlan @relation(fields: [trainingPlanId], references: [id])
+
+  trainingPlan   TrainingPlan @relation(fields: [trainingPlanId], references: [id], onDelete: Cascade)
 }
 
 model SuggestionLog {
@@ -86,8 +92,9 @@ model SuggestionLog {
   previousValue Json?
   newValue      Json?
   createdAt     DateTime   @default(now())
-  session       Session    @relation(fields: [sessionId], references: [id])
-  week          Week       @relation(fields: [weekId], references: [id])
+
+  session       Session    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  week          Week       @relation(fields: [weekId], references: [id], onDelete: Cascade)
 }
 
 enum Gender {
