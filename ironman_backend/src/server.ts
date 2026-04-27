@@ -8,7 +8,7 @@ import authRoutes from "./routes/auth.routes";
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:5173",
+  "https://ironman-buddy.netlify.app/",
   "https://ironman-app.onrender.com",
 ];
 
