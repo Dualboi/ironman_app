@@ -11,21 +11,11 @@ const allowedOrigins = process.env.CORS_ORIGINS?.split(",") || [
   "http://localhost:5173",
 ];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
+app.use(cors({
+  origin: "*",
+}));
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      console.log("Blocked CORS origin:", origin);
-      return callback(new Error("Blocked by CORS"));
-    },
-    credentials: true,
-  })
-);
+app.options("*", cors());
 
 app.use(express.json());
 
