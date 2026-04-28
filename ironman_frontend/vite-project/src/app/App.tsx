@@ -1,6 +1,6 @@
-import { useAuth } from "./auth/AuthContext";
-import Login from "./pages/login";
-import Dashboard from "./pages/Dashboard";
+import { useAuth } from "../features/auth/AuthContext";
+import Login from "../features/dashboard/login";
+import Dashboard from "../features/dashboard/Dashboard";
 
 export default function App() {
   const { session, loading } = useAuth();

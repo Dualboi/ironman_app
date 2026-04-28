@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
-import { apiFetch } from "../api/client";
+import { supabase } from "../../shared/lib/supabase";
+import { apiFetch } from "./api/client";
 
 type AuthContextType = {
     session: any;
