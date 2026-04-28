@@ -1,5 +1,7 @@
 // src/features/dashboard/LoginCard.tsx
 import { Card } from '../../shared/components/reusable-card';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
     email: string;
@@ -21,7 +23,10 @@ export const LoginCard = ({
     return (
         <Card className="text-center">
             <div className="flex flex-col items-center gap-4">
-                <div className="text-zinc-400 text-4xl">👤</div>
+                <div className="text-zinc-400 text-4xl"><FontAwesomeIcon
+                    icon={faUser}
+                    className="text-zinc-400 text-3xl mb-2"
+                /></div>
 
                 <p className="text-zinc-300 text-sm">
                     Login or create an account
