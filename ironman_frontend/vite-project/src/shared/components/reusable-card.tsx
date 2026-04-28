@@ -14,7 +14,7 @@ export const Card: React.FC<CardProps> = ({ title, children, className }) => {
                 bg-zinc-900/80 backdrop-blur-md
                 border border-zinc-800
                 rounded-2xl shadow-lg
-                p-6 w-full max-w-md
+                p-8 w-full max-w-lg
                 ${className}
                 `}
         >

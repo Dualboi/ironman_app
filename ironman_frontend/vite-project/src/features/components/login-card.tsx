@@ -22,7 +22,7 @@ export const LoginCard = ({
 }: Props) => {
     return (
         <Card className="text-center">
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-6">
                 <div className="text-zinc-400 text-4xl"><FontAwesomeIcon
                     icon={faUser}
                     className="text-zinc-400 text-3xl mb-2"
@@ -37,15 +37,34 @@ export const LoginCard = ({
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full p-2 rounded-md bg-zinc-800 text-white border border-zinc-700"
+                    className="
+                    w-full
+                    px-4 py-3
+                    rounded-lg
+                    bg-zinc-800
+                    text-white
+                    placeholder:text-zinc-400
+                    border border-zinc-700
+                    focus:outline-none
+                    focus:ring-2 focus:ring-cyan-500
+                "
                 />
-
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full p-2 rounded-md bg-zinc-800 text-white border border-zinc-700"
+                    className="
+                    w-full
+                    px-4 py-3
+                    rounded-lg
+                    bg-zinc-800
+                    text-white
+                    placeholder:text-zinc-400
+                    border border-zinc-700
+                    focus:outline-none
+                    focus:ring-2 focus:ring-cyan-500
+                "
                 />
 
                 <div className="flex gap-2 w-full">
