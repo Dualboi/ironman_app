@@ -38,16 +38,13 @@ export const LoginCard = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="
-                    w-full
-                    px-4 py-3
-                    rounded-lg
-                    bg-zinc-800
-                    text-white
-                    placeholder:text-zinc-400
+                    w-full px-4 py-3 rounded-lg
+                    bg-zinc-800 text-white
                     border border-zinc-700
-                    focus:outline-none
-                    focus:ring-2 focus:ring-cyan-500
-                "
+                    focus:border-cyan-500
+                    focus:ring-2 focus:ring-cyan-500/30
+                    transition
+                    "
                 />
                 <input
                     type="password"
@@ -55,16 +52,13 @@ export const LoginCard = ({
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="
-                    w-full
-                    px-4 py-3
-                    rounded-lg
-                    bg-zinc-800
-                    text-white
-                    placeholder:text-zinc-400
+                    w-full px-4 py-3 rounded-lg
+                    bg-zinc-800 text-white
                     border border-zinc-700
-                    focus:outline-none
-                    focus:ring-2 focus:ring-cyan-500
-                "
+                    focus:border-cyan-500
+                    focus:ring-2 focus:ring-cyan-500/30
+                    transition
+                    "
                 />
 
                 <div className="flex gap-2 w-full">
