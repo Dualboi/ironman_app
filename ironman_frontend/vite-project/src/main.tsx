@@ -8,9 +8,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AuthProvider>
       <App />
-      <div className="bg-green-500 text-white p-4">
-        Tailwind is working
-      </div>
     </AuthProvider>
   </React.StrictMode>
 );
