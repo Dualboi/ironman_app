@@ -1,36 +1,34 @@
 import { useState } from "react";
 import { useAuth } from "../auth/AuthContext";
+import { AuthLayout } from "../../features/components/auth-layout";
+import { LoginCard } from "../../features/components/login-card";
 
 export default function Login() {
     const { login, register, needsConfirmation } = useAuth();
-    if (needsConfirmation) {
-        return <div>Please check your email to confirm your account.</div>;
-    }
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    if (needsConfirmation) {
+        return (
+            <AuthLayout>
+                <div className="text-zinc-300 text-center">
+                    Please check your email to confirm your account.
+                </div>
+            </AuthLayout>
+        );
+    }
+
     return (
-        <div style={{ padding: 20 }}>
-            <h2>Auth Test</h2>
-
-            <input
-                placeholder="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+        <AuthLayout>
+            <LoginCard
+                email={email}
+                password={password}
+                setEmail={setEmail}
+                setPassword={setPassword}
+                onLogin={() => login(email, password)}
+                onRegister={() => register(email, password)}
             />
-
-            <input
-                placeholder="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-
-            <div style={{ marginTop: 10 }}>
-                <button onClick={() => login(email, password)}>Login</button>
-                <button onClick={() => register(email, password)}>Register</button>
-            </div>
-        </div>
+        </AuthLayout>
     );
 }
