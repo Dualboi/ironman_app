@@ -3,7 +3,7 @@ import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
 //import { Card } from "../../shared/components/reusable-card";
 //import { Input } from "../../shared/components/input";
-//import { Button } from "../../shared/components/button";
+import { Button } from "../../shared/components/button";
 
 export default function Dashboard() {
   const { user, session, logout } = useAuth();
@@ -21,7 +21,7 @@ export default function Dashboard() {
       <h3 className="text-zinc-300">JWT preview:</h3>
       <pre>{session?.access_token?.slice(0, 25)}...</pre>
 
-      <button className="text-zinc-300" onClick={logout}>Logout</button>
+      <Button variant="primary" onClick={logout}>Logout</Button>
     </div></><><Footer /></></></>
     </div>
   );
