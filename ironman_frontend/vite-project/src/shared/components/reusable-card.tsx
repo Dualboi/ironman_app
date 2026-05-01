@@ -1,4 +1,4 @@
-// src/components/ui/Card.tsx
+// src/shared/components/card.tsx
 import React from "react";
 
 type CardProps = {

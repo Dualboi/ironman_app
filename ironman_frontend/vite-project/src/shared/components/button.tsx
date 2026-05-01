@@ -1,4 +1,4 @@
-// src/components/ui/Button.tsx
+// src/shared/components/button.tsx
 import React from "react";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
