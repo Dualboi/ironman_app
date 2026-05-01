@@ -71,7 +71,7 @@ export const LoginCard = ({
 
                     <button
                         onClick={onRegister}
-                        className="flex-1 bg-cyan-500/80 hover:bg-cyan-600 text-black py-2 rounded-md"
+                        className="flex-1 bg-cyan-500 hover:bg-cyan-600 text-black py-2 rounded-md"
                     >
                         Register
                     </button>
