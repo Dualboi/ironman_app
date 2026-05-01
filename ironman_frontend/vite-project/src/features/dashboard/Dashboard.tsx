@@ -1,9 +1,9 @@
 import { useAuth } from "../auth/AuthContext";
 import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
-import { Card } from "../../shared/components/reusable-card";
-import { Input } from "../../shared/components/input";
-import { Button } from "../../shared/components/button";
+//import { Card } from "../../shared/components/reusable-card";
+//import { Input } from "../../shared/components/input";
+//import { Button } from "../../shared/components/button";
 
 export default function Dashboard() {
   const { user, session, logout } = useAuth();
