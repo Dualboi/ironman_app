@@ -19,9 +19,9 @@ export default function Dashboard() {
       <pre>{JSON.stringify(user, null, 2)}</pre>
 
       <h3 className="text-zinc-300">JWT preview:</h3>
-      <pre>{session?.access_token?.slice(0, 25)}...</pre>
+      <pre className="text-zinc-300">{session?.access_token?.slice(0, 25)}...</pre>
 
-      <Button variant="primary" onClick={logout}>Logout</Button>
+      <Button variant="primary" className="text-zinc-300" onClick={logout}>Logout</Button>
     </div></><><Footer /></></></>
     </div>
   );
