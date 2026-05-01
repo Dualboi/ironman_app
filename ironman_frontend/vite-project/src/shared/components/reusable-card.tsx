@@ -11,10 +11,11 @@ export const Card: React.FC<CardProps> = ({ title, children, className }) => {
     return (
         <div
             className={`
-                bg-zinc-900/80 backdrop-blur-md
-                border border-zinc-800
-                rounded-2xl shadow-lg
-                p-8 w-full max-w-lg
+               bg-zinc-900/70 backdrop-blur-xl
+                border border-zinc-800/50
+                rounded-2xl
+                shadow-[0_10px_40px_rgba(0,0,0,0.6)]
+                p-10 w-full max-w-lg
                 ${className}
                 `}
         >

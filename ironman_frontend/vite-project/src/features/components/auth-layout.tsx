@@ -1,7 +1,7 @@
 // src/features/components/AuthLayout.tsx
 export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="min-h-screen bg-linear-to-b from-black to-zinc-900 flex flex-col items-center">
+        <div className=" min-h-screen bg-gradient-to-br  from-black via-zinc-900 to-black flex flex-col items-center">
             {/* Navbar */}
             <header className="w-full p-4 text-center text-zinc-300 border-b border-zinc-800">
                 Ironman Buddy
