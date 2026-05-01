@@ -28,9 +28,7 @@ export const LoginCard = ({
                     className="
                         text-cyan-400 
                         text-4xl 
-                        mb-2 
-                        drop-shadow-[0_0_10px_rgba(34,211,238,0.4)]
-  "
+                        mb-2 "
                 /></div>
 
                 <p className="text-zinc-400 text-sm tracking-wide">
