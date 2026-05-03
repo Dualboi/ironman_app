@@ -16,7 +16,7 @@ export default function Dashboard() {
       <h2>Dashboard</h2>
 
       <h3 className="text-zinc-300">Backend /me response:</h3>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+      <pre className="text-zinc-300">{JSON.stringify(user, null, 2)}</pre>
 
       <h3 className="text-zinc-300">JWT preview:</h3>
       <pre className="text-zinc-300">{session?.access_token?.slice(0, 25)}...</pre>
