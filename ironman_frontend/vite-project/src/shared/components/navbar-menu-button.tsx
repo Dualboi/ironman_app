@@ -4,7 +4,7 @@ import React from "react";
 export const NavbarMenuButton: React.FC = () => {
     return (
         <>
-            <button className="group inline-flex w-12 h-12 text-cyan-500 bg-zinc-900-70 text-center items-center justify-center rounded shadow-[0_1px_0_theme(colors.slate.950/.04),0_1px_2px_theme(colors.slate.950/.12),inset_0_-2px_0_theme(colors.slate.950/.04)] hover:shadow-[0_1px_0_theme(colors.slate.950/.04),0_4px_8px_theme(colors.slate.950/.12),inset_0_-2px_0_theme(colors.slate.950/.04)] transition" aria-pressed="false" onClick={(e) => {
+            <button className="group inline-flex w-12 h-12 text-cyan-500 bg-transparent text-center items-center justify-center rounded shadow-[0_1px_0_theme(colors.slate.950/.04),0_1px_2px_theme(colors.slate.950/.12),inset_0_-2px_0_theme(colors.slate.950/.04)] hover:shadow-[0_1px_0_theme(colors.slate.950/.04),0_4px_8px_theme(colors.slate.950/.12),inset_0_-2px_0_theme(colors.slate.950/.04)] transition" aria-pressed="false" onClick={(e) => {
                 const isPressed = e.currentTarget.getAttribute('aria-pressed') === 'true';
                 e.currentTarget.setAttribute('aria-pressed', !isPressed ? 'true' : 'false');
             }}>
