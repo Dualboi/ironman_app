@@ -4,7 +4,7 @@ import React from "react";
 export const NavbarMenuButton: React.FC = () => {
     return (
         <>
-            <button className="ml-auto group inline-flex w-12 h-12 text-cyan-500 bg-transparent text-center items-center justify-center rounded transition" aria-pressed="false" onClick={(e) => {
+            <button className="group inline-flex w-12 h-12 text-cyan-500 bg-transparent text-center items-center justify-center rounded transition" aria-pressed="false" onClick={(e) => {
                 const isPressed = e.currentTarget.getAttribute('aria-pressed') === 'true';
                 e.currentTarget.setAttribute('aria-pressed', !isPressed ? 'true' : 'false');
             }}>
