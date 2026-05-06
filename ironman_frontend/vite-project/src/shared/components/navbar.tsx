@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between min-h-[48px]">
                 <div className="font-display text-2xl font-semibold tracking-tight text-zinc-300" />
 
-                <div className="flex items-right space-x-4">
+                <div className="flex items-right space-x-2">
                     <NavbarMenuButton />
                 </div>
             </div>
