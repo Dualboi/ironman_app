@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => {
 
                 {/* Logo / Brand */}
                 <div className="font-display text-2xl font-semibold tracking-tight text-zinc-300">
-                    Navbar
+
                 </div>
 
                 {/* Menu Button */}
@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            className="block px-5 py-3 text-zinc-400 hover:bg-zinc-800 transition"
+                            className="block px-5 py-3 text-cyan-400 hover:bg-zinc-800 transition"
                         >
                             Progress
                         </a>
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            className="block px-5 py-3 text-zinc-400 hover:bg-zinc-800 transition"
+                            className="block px-5 py-3 text-cyan-400 hover:bg-zinc-800 transition"
                         >
                             Settings
                         </a>
