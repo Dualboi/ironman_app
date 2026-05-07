@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            className="block px-5 py-3 text-cyan-400 hover:bg-zinc-800 transition"
+                            className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition"
                         >
                             Home
                         </a>
@@ -53,7 +53,7 @@ export const Navbar: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            className="block px-5 py-3 text-cyan-400 hover:bg-zinc-800 transition"
+                            className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition"
                         >
                             Workouts
                         </a>
@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            className="block px-5 py-3 text-cyan-400 hover:bg-zinc-800 transition"
+                            className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition"
                         >
                             Schedule
                         </a>
@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            className="block px-5 py-3 text-cyan-400 hover:bg-zinc-800 transition"
+                            className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition"
                         >
                             Progress
                         </a>
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            className="block px-5 py-3 text-cyan-400 hover:bg-zinc-800 transition"
+                            className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition"
                         >
                             Settings
                         </a>
