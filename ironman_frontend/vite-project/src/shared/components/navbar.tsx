@@ -8,8 +8,8 @@ export const Navbar: React.FC = () => {
 
     return (
         <>
-            <nav className="relative w-screen bg-zinc-900 border-b border-zinc-800">
-                <div className="flex items-center justify-between min-h-56px px-4">
+            <nav className="fixed top-0 left-0 z-50 w-screen h-[56px] bg-zinc-900 border-b border-zinc-800">
+                <div className="flex items-center justify-between min-h-[56px] px-4">
                     <div className="font-display text-2xl font-semibold tracking-tight text-zinc-300">
                     </div>
 
@@ -29,10 +29,10 @@ export const Navbar: React.FC = () => {
 
             {/* Side Drawer */}
             <aside
-                className={`fixed top-[56px] right-0 h-[calc(100vh-56px)] w-72 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"
+                className={`fixed top-[56px] right-0 h-[calc(100vh-[56px])] w-72 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"
                     }`}
             >
-                <div className="h-56px border-b border-zinc-800" />
+                <div className="h-[56px] border-b border-zinc-800" />
                 <ul className="flex flex-col py-2">
                     <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Home</a></li>
                     <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Workouts</a></li>
