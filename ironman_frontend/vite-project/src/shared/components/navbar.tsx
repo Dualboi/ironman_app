@@ -23,14 +23,14 @@ export const Navbar: React.FC = () => {
 
             {/* Backdrop */}
             <div
-                className={`fixed inset-0 bg-black/50 transition-opacity duration-300 z-40 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                className={`fixed top-[56px] left-0 right-0 bottom-0 bg-black/50 transition-opacity duration-300 z-40 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                     }`}
                 onClick={() => setIsOpen(false)}
             />
 
             {/* Side Drawer */}
             <aside
-                className={`fixed top-0 right-0 h-screen w-72 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"
+                className={`fixed top-[56px] right-0 h-[calc(100vh-56px)] w-72 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"
                     }`}
             >
                 <div className="h-56px border-b border-zinc-800" />
