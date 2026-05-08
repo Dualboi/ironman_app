@@ -26,13 +26,12 @@ export const NavbarMenuButton: React.FC<Props> = ({
                 <rect
                     className="
                         origin-center
-                        -translate-y-5px
-                        translate-x-1.75
+                        -translate-y-[5px]
+                        translate-x-[7px]
                         transition-all duration-300
                         ease-[cubic-bezier(.5,.85,.25,1.1)]
-                        group-aria-pressed:translate-x-0
-                        group-aria-pressed:translate-y-0
-                        group-aria-pressed:rotate-315
+                        -translate-y-[5px]
+                        translate-x-[7px]
                     "
                     y="7"
                     width="9"
@@ -45,7 +44,7 @@ export const NavbarMenuButton: React.FC<Props> = ({
                         origin-center
                         transition-all duration-300
                         ease-[cubic-bezier(.5,.85,.25,1.8)]
-                        group-aria-pressed=true:rotate-45
+                        group-aria-[pressed=true]:rotate-45
                     "
                     y="7"
                     width="16"
@@ -56,11 +55,11 @@ export const NavbarMenuButton: React.FC<Props> = ({
                 <rect
                     className="
                         origin-center
-                        translate-y-5px
+                        translate-y-[5px]
                         transition-all duration-300
                         ease-[cubic-bezier(.5,.85,.25,1.1)]
-                        group-aria-pressed=true:translate-y-0
-                        group-aria-pressed=true:-rotate-225deg
+                        group-aria-[pressed=true]:translate-y-0
+                        group-aria-[pressed=true]:-rotate-225deg
                     "
                     y="7"
                     width="9"
