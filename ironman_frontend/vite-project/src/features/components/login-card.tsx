@@ -27,7 +27,12 @@ export const LoginCard = ({
     const [showPassword, setShowPassword] = React.useState(false);
     return (
         <Card className="text-center">
-            <div className="flex flex-col items-center gap-6 w-full">
+            <form className="flex flex-col items-center gap-6 w-full"
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    onLogin();
+                }}
+            >
 
                 <FontAwesomeIcon
                     icon={faUser}
@@ -50,11 +55,6 @@ export const LoginCard = ({
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                                onLogin();
-                            }
-                        }}
                     />
                     <button
                         type="button"
@@ -66,13 +66,13 @@ export const LoginCard = ({
                 </div>
 
                 <div className="flex gap-2 w-full">
-                    <Button onClick={onLogin}>Login</Button>
-                    <Button variant="secondary" onClick={onRegister}>
+                    <Button type="submit">Login</Button>
+                    <Button type="button" variant="secondary" onClick={onRegister}>
                         Register
                     </Button>
                 </div>
 
-            </div>
+            </form>
         </Card>
     );
 };
