@@ -11,7 +11,6 @@ export const Navbar: React.FC = () => {
             <nav className="relative w-screen bg-zinc-900 border-b border-zinc-800">
                 <div className="flex items-center justify-between min-h-56px px-4">
                     <div className="font-display text-2xl font-semibold tracking-tight text-zinc-300">
-                        IronMan Buddy
                     </div>
 
                     <NavbarMenuButton
