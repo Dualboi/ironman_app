@@ -9,6 +9,8 @@ export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
 
             {/* Center Content */}
             <main className="flex flex-1 items-center justify-center w-full px-4">
+                {/* spacer matching the fixed navbar height */}
+                <div className="h-[56px] w-full" />
                 {children}
             </main>
         </div>
