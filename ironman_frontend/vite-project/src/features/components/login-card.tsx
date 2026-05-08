@@ -1,7 +1,7 @@
 // src/features/dashboard/LoginCard.tsx
 import { Card } from '../../shared/components/reusable-card';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { Input } from "../../shared/components/input";
 import { Button } from "../../shared/components/button";
 import React from "react";
@@ -56,7 +56,7 @@ export const LoginCard = ({
                         className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-cyan-400 transition-colors"
                         onClick={() => setShowPassword((v) => !v)}
                     >
-                        {showPassword ? "Hide" : "Show"}
+                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                     </button>
                 </div>
 
