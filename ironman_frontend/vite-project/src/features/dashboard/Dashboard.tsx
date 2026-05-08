@@ -9,7 +9,7 @@ export default function Dashboard() {
   const { user, session, logout } = useAuth();
 
   return (
-    <div className=" min-h-screen bg-linear-to-br  from-black via-zinc-900 to-black flex flex-col items-center pt-[56px]">
+    <div className=" min-h-screen bg-linear-to-br  from-black via-zinc-900 to-black flex flex-col items-center pb-[56px]">
       <><header className=" font-display text-2xl font-semibold tracking-tight w-full p-4 text-center text-zinc-300 border-b border-zinc-800">
         IronMan Buddy
       </header><><><Navbar /><div style={{ padding: 20 }}>
