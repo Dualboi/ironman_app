@@ -3,10 +3,20 @@
 import React, { useState } from "react";
 import { NavbarMenuButton } from "./navbar-menu-button";
 import { useAuth } from "../../features/auth/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleNavClick = () => setIsOpen(false);
+
+    const handleLogout = () => {
+        logout();
+        setIsOpen(false);
+        navigate("/login");
+    };
 
     return (
         <>
@@ -33,12 +43,40 @@ export const Navbar: React.FC = () => {
             >
                 <div className="h-12 md:h-14 border-b border-zinc-800" />
                 <ul className="flex flex-col py-2">
-                    <li><a href="../../features/dashboard/Dashboard.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Home</a></li>
-                    <li><a href="../../features/dashboard/Dashboard.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Workouts</a></li>
-                    <li><a href="../../features/dashboard/schedule.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Schedule</a></li>
-                    <li><a href="../../features/dashboard/stats.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Progress</a></li>
-                    <li><a href="../../features/dashboard/settings.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Settings</a></li>
-                    <li> <a href="../../features/dashboard/login.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition" onClick={logout}>Logout</a></li>
+                    <li>
+                        <Link to="/dashboard" onClick={handleNavClick} className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/workouts" onClick={handleNavClick} className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">
+                            Workouts
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/schedule" onClick={handleNavClick} className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">
+                            Schedule
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/stats" onClick={handleNavClick} className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">
+                            Progress
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/settings" onClick={handleNavClick} className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">
+                            Settings
+                        </Link>
+                    </li>
+                    <li>
+                        <button
+                            type="button"
+                            onClick={handleLogout}
+                            className="block w-full text-left whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition"
+                        >
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </aside>
         </>
