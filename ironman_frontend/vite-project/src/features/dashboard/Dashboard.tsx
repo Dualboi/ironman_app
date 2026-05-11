@@ -1,6 +1,7 @@
 import { useAuth } from "../auth/AuthContext";
 import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
+import { Card } from "../../shared/components/reusable-card";
 
 export default function Dashboard() {
   const { user, session } = useAuth();
@@ -31,6 +32,12 @@ export default function Dashboard() {
             </pre>
           </section>
         </div>
+        <Card className="text-center">
+          <p>Welcome to your dashboard, {user?.name}!</p>
+        </Card>
+        <Card className="text-center">
+          <p>Welcome to your dashboard2 {user?.name}!</p>
+        </Card>
       </main>
 
       <Footer />
