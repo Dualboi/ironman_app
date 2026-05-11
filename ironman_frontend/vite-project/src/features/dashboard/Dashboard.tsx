@@ -1,10 +1,9 @@
 import { useAuth } from "../auth/AuthContext";
 import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
-import { Button } from "../../shared/components/button";
 
 export default function Dashboard() {
-  const { user, session, logout } = useAuth();
+  const { user, session } = useAuth();
 
   return (
     <div className="min-h-screen bg-linear-to-br from-black via-zinc-900 to-black flex flex-col">
@@ -31,10 +30,6 @@ export default function Dashboard() {
               {session?.access_token?.slice(0, 25)}...
             </pre>
           </section>
-
-          <Button variant="primary" className="text-zinc-300" onClick={logout}>
-            Logout
-          </Button>
         </div>
       </main>
 
