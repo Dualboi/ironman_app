@@ -7,7 +7,7 @@ export const AuthLayout = ({ children }: { children: React.ReactNode }) => {
                 IronMan Buddy
             </header>
 
-            <main className="w-full px-4">
+            <main className="flex flex-1 items-center justify-center w-full px-4 pt-[56px]">
                 {children}
             </main>
         </div>
