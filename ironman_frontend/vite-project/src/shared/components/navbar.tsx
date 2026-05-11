@@ -27,7 +27,7 @@ export const Navbar: React.FC = () => {
 
             {/* Side Drawer starts below header + navbar = 112px */}
             <aside
-                className={`fixed top-[112px] right-0 z-50 h-[calc(100vh-112px)] w-34 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed top-[112px] right-0 z-50 h-[calc(100vh-112px)] w-26 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="h-[56px] border-b border-zinc-800" />
                 <ul className="flex flex-col py-2">
