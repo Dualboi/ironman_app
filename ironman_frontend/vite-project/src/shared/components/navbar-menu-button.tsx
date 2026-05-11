@@ -13,7 +13,7 @@ export const NavbarMenuButton: React.FC<Props> = ({
     return (
         <button
             type="button"
-            className="group inline-flex w-8 h-12 text-cyan-500 items-center justify-center rounded transition cursor-pointer"
+            className="group inline-flex w-12 h-12 text-cyan-500 items-center justify-center rounded transition cursor-pointer"
             aria-pressed={isOpen}
             onClick={toggle}
         >
