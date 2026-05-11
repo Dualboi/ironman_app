@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import { NavbarMenuButton } from "./navbar-menu-button";
+import { useAuth } from "../../features/auth/AuthContext";
 
 export const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { logout } = useAuth();
 
     return (
         <>
@@ -36,6 +38,7 @@ export const Navbar: React.FC = () => {
                     <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Schedule</a></li>
                     <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Progress</a></li>
                     <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Settings</a></li>
+                    <li> <a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition" onClick={logout}>Logout</a></li>
                 </ul>
             </aside>
         </>
