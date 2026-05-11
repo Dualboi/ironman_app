@@ -5,6 +5,7 @@ import { Route, Navigate, Routes } from "react-router-dom";
 import Schedule from "../features/schedule/schedule";
 import Stats from "../features/training/stats";
 import Settings from "../features/settings/settings";
+import ManageWorkouts from "../features/settings/ManageWorkouts";
 
 export default function App() {
   const { session, loading } = useAuth();
@@ -28,7 +29,7 @@ export default function App() {
       />
       <Route
         path="/workouts"
-        element={session ? <Dashboard /> : <Navigate to="/login" replace />}
+        element={session ? <ManageWorkouts /> : <Navigate to="/login" replace />}
       />
       <Route
         path="/schedule"
