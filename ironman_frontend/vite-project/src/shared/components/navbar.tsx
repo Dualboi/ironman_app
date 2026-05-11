@@ -33,12 +33,12 @@ export const Navbar: React.FC = () => {
             >
                 <div className="h-12 md:h-14 border-b border-zinc-800" />
                 <ul className="flex flex-col py-2">
-                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Home</a></li>
-                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Workouts</a></li>
-                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Schedule</a></li>
-                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Progress</a></li>
-                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Settings</a></li>
-                    <li> <a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition" onClick={logout}>Logout</a></li>
+                    <li><a href="../../features/dashboard/Dashboard.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Home</a></li>
+                    <li><a href="../../features/dashboard/Dashboard.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Workouts</a></li>
+                    <li><a href="../../features/dashboard/schedule.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Schedule</a></li>
+                    <li><a href="../../features/dashboard/stats.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Progress</a></li>
+                    <li><a href="../../features/dashboard/settings.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Settings</a></li>
+                    <li> <a href="../../features/dashboard/login.tsx" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition" onClick={logout}>Logout</a></li>
                 </ul>
             </aside>
         </>
