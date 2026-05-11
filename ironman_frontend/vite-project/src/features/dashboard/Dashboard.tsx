@@ -18,7 +18,7 @@ export default function Dashboard() {
           <h2 className="text-zinc-300 text-xl font-semibold">Dashboard</h2>
 
           <section>
-            <h3 className="text-zinc-300">Backend /me response:</h3>
+            <h3 className="text-zinc-300">Backend /me response: </h3>
             <pre className="text-zinc-300 whitespace-pre-wrap wrap-break-word max-w-full overflow-auto text-sm md:text-base">
               {JSON.stringify(user, null, 2)}
             </pre>
