@@ -27,15 +27,15 @@ export const Navbar: React.FC = () => {
 
             {/* Side Drawer starts below header + navbar (responsive) */}
             <aside
-                className={`fixed top-24 md:top-28 right-0 z-50 h-[calc(100vh-96px)] md:h-[calc(100vh-7rem)] w-72 md:w-80 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed top-24 md:top-28 right-0 z-50 h-[calc(100vh-96px)] md:h-[calc(100vh-7rem)] w-fit max-w-[calc(100vw-1rem)] bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="h-12 md:h-14 border-b border-zinc-800" />
                 <ul className="flex flex-col py-2">
-                    <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Home</a></li>
-                    <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Workouts</a></li>
-                    <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Schedule</a></li>
-                    <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Progress</a></li>
-                    <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Settings</a></li>
+                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Home</a></li>
+                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Workouts</a></li>
+                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Schedule</a></li>
+                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Progress</a></li>
+                    <li><a href="#" className="block whitespace-nowrap px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Settings</a></li>
                 </ul>
             </aside>
         </>
