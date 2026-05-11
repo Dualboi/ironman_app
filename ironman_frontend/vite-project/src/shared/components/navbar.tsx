@@ -9,7 +9,7 @@ export const Navbar: React.FC = () => {
     return (
         <>
             {/* place navbar below the header (header height = 56px) */}
-            <nav className="fixed top-[56px] left-0 z-50 w-screen h-[56px] bg-zinc-900 border-b border-zinc-800">
+            <nav className="fixed top-[56px] left-0 z-50 w-full h-[56px] bg-zinc-900 border-b border-zinc-800">
                 <div className="flex items-center justify-between h-full px-4">
                     <div className="font-display text-2xl font-semibold tracking-tight text-zinc-300" />
                     <NavbarMenuButton
