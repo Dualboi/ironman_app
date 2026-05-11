@@ -8,8 +8,8 @@ export const Navbar: React.FC = () => {
 
     return (
         <>
-            {/* place navbar below the header (header height = 56px) */}
-            <nav className="fixed top-[56px] left-0 z-50 w-full h-[56px] bg-zinc-900 border-b border-zinc-800">
+            {/* place navbar below the header (responsive heights) */}
+            <nav className="fixed top-12 md:top-[56px] left-0 z-50 w-full h-12 md:h-[56px] bg-zinc-900 border-b border-zinc-800">
                 <div className="flex items-center justify-between h-full px-4">
                     <div className="font-display text-2xl font-semibold tracking-tight text-zinc-300" />
                     <NavbarMenuButton
@@ -19,17 +19,17 @@ export const Navbar: React.FC = () => {
                 </div>
             </nav>
 
-            {/* Backdrop starts below header + navbar = 112px */}
+            {/* Backdrop starts below header + navbar (responsive) */}
             <div
-                className={`fixed top-[112px] left-0 right-0 bottom-0 bg-black/50 transition-opacity duration-300 z-40 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+                className={`fixed top-24 md:top-[112px] left-0 right-0 bottom-0 bg-black/50 transition-opacity duration-300 z-40 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
                 onClick={() => setIsOpen(false)}
             />
 
-            {/* Side Drawer starts below header + navbar = 112px */}
+            {/* Side Drawer starts below header + navbar (responsive) */}
             <aside
-                className={`fixed top-[112px] right-0 z-50 h-[calc(100vh-112px)] w-26 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed top-24 md:top-[112px] right-0 z-50 h-[calc(100vh-96px)] md:h-[calc(100vh-112px)] w-72 md:w-80 bg-zinc-900/95 backdrop-blur-xl border-l border-zinc-800 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
-                <div className="h-[56px] border-b border-zinc-800" />
+                <div className="h-12 md:h-[56px] border-b border-zinc-800" />
                 <ul className="flex flex-col py-2">
                     <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Home</a></li>
                     <li><a href="#" className="block px-5 py-3 text-cyan-400 hover:text-zinc-400 hover:bg-zinc-800 transition">Workouts</a></li>

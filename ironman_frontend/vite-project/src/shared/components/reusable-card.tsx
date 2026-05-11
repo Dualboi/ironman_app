@@ -19,7 +19,7 @@ export const Card: React.FC<CardProps> = ({
         border border-zinc-800/50
         rounded-2xl
         shadow-[0_10px_40px_rgba(0,0,0,0.6)]
-        p-10 w-full max-w-lg
+        p-6 sm:p-8 md:p-10 w-full max-w-lg
         ${className}
       `}
     >
