@@ -9,7 +9,7 @@ import Settings from "../features/settings/settings";
 import ManageWorkouts from "../features/settings/ManageWorkouts";
 
 export default function App() {
-  const { session, loading } = useAuth();
+  const { session, loading, needsProfileCompletion } = useAuth();
 
   if (loading) return <body className="bg-zinc-900 backdrop-blur-xl text-white items-center justify-center"><div className="text-center">Loading...</div></body>;
 
@@ -17,12 +17,12 @@ export default function App() {
     <Routes>
       <Route
         path="/login"
-        element={session ? <Navigate to="/dashboard" replace /> : <Login />}
+        element={session ? <Navigate to={needsProfileCompletion ? "/complete-profile" : "/dashboard"} replace /> : <Login />}
       />
 
       <Route
         path="/"
-        element={<Navigate to={session ? "/dashboard" : "/login"} replace />}
+        element={<Navigate to={session ? (needsProfileCompletion ? "/complete-profile" : "/dashboard") : "/login"} replace />}
       />
       <Route
         path="/complete-profile"
@@ -30,28 +30,28 @@ export default function App() {
       />
       <Route
         path="/dashboard"
-        element={session ? <Dashboard /> : <Navigate to="/login" replace />}
+        element={session ? (needsProfileCompletion ? <Navigate to="/complete-profile" replace /> : <Dashboard />) : <Navigate to="/login" replace />}
       />
       <Route
         path="/workouts"
-        element={session ? <ManageWorkouts /> : <Navigate to="/login" replace />}
+        element={session ? (needsProfileCompletion ? <Navigate to="/complete-profile" replace /> : <ManageWorkouts />) : <Navigate to="/login" replace />}
       />
       <Route
         path="/schedule"
-        element={session ? <Schedule /> : <Navigate to="/login" replace />}
+        element={session ? (needsProfileCompletion ? <Navigate to="/complete-profile" replace /> : <Schedule />) : <Navigate to="/login" replace />}
       />
       <Route
         path="/stats"
-        element={session ? <Stats /> : <Navigate to="/login" replace />}
+        element={session ? (needsProfileCompletion ? <Navigate to="/complete-profile" replace /> : <Stats />) : <Navigate to="/login" replace />}
       />
       <Route
         path="/settings"
-        element={session ? <Settings /> : <Navigate to="/login" replace />}
+        element={session ? (needsProfileCompletion ? <Navigate to="/complete-profile" replace /> : <Settings />) : <Navigate to="/login" replace />}
       />
 
       <Route
         path="*"
-        element={<Navigate to={session ? "/dashboard" : "/login"} replace />}
+        element={<Navigate to={session ? (needsProfileCompletion ? "/complete-profile" : "/dashboard") : "/login"} replace />}
       />
     </Routes>
   );

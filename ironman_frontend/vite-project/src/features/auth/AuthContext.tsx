@@ -42,9 +42,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                         });
 
                         console.log("ME:", me);
-                        setUser(me);
+                        setNeedsProfileCompletion(!me?.user?.profile);
+                        setUser(me.user);
                     } catch (err) {
                         console.error("ME FETCH FAILED:", err);
+                        setNeedsProfileCompletion(false);
                         setUser(null);
                     }
                 }
@@ -69,18 +71,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                         });
 
                         console.log("ME:", me);
-                        
-                        // Check if user has a profile - if not, they need to complete it
-                        if (me.user && !me.user.profile) {
-                            setNeedsProfileCompletion(true);
-                        }
-                        
-                        setUser(me);
+
+                        setNeedsProfileCompletion(!me?.user?.profile);
+                        setUser(me.user);
                     } catch (err) {
                         console.error("ME FETCH FAILED:", err);
+                        setNeedsProfileCompletion(false);
                         setUser(null);
                     }
                 } else {
+                    setNeedsProfileCompletion(false);
                     setUser(null);
                 }
             }
