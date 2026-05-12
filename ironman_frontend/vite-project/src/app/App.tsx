@@ -5,7 +5,7 @@ import Dashboard from "../features/dashboard/Dashboard";
 export default function App() {
   const { session, loading } = useAuth();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <body className="bg-zinc-900/70 backdrop-blur-xl"><div>Loading...</div></body>;
 
   return session ? <Dashboard /> : <Login />;
 }
