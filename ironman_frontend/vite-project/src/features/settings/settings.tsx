@@ -1,4 +1,5 @@
 //import { useAuth } from "../auth/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
 import { Button } from "../../shared/components/button";
@@ -6,6 +7,7 @@ import { Card } from "../../shared/components/reusable-card";
 
 export default function Settings() {
     //const { user } = useAuth();
+    const navigate = useNavigate();
 
     return (
         <div className="min-h-screen bg-linear-to-br from-black via-zinc-900 to-black flex flex-col">
@@ -21,11 +23,11 @@ export default function Settings() {
                         <Card className="w-full max-w-4xl">
                             <h2 className="text-zinc-300 text-xl mb-6 text-center">Settings</h2>
                             <div className="grid grid-cols-2 gap-4">
-                                <Button variant="primary">Progress</Button>
+                                <Button variant="primary" onClick={() => navigate("/stats")}>Progress</Button>
                                 <Button variant="primary">Manage Account</Button>
                                 <Button variant="primary">Manage Data</Button>
                                 <Button variant="primary">Personal Details</Button>
-                                <Button variant="primary">Manage Activities</Button>
+                                <Button variant="primary" onClick={() => navigate("/workouts")}>Manage Activities</Button>
                                 <Button variant="primary">Get Help</Button>
                                 <Button variant="primary">App Updates</Button>
                                 <Button variant="primary">Get in Touch</Button>
