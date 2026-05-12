@@ -20,6 +20,7 @@ router.post("/me", authMiddleware, async (req: AuthenticatedRequest, res) => {
       email,
       name: "",
     },
+    include: { profile: true },
   });
 
   return res.json({

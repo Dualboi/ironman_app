@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { AuthLayout } from "../../features/components/auth-layout";
 import { LoginCard } from "../../features/components/login-card";
 
 export default function Login() {
+    const navigate = useNavigate();
     const { login, register, needsConfirmation, needsProfileCompletion } = useAuth();
+
+    useEffect(() => {
+        if (needsProfileCompletion) {
+            navigate("/complete-profile");
+        }
+    }, [needsProfileCompletion, navigate]);
+
     if (needsProfileCompletion) {
         return (
             <AuthLayout>

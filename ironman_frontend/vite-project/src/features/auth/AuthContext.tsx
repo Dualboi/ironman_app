@@ -68,6 +68,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                             method: "POST",
                         });
 
+                        console.log("ME:", me);
+                        
+                        // Check if user has a profile - if not, they need to complete it
+                        if (me.user && !me.user.profile) {
+                            setNeedsProfileCompletion(true);
+                        }
+                        
                         setUser(me);
                     } catch (err) {
                         console.error("ME FETCH FAILED:", err);
