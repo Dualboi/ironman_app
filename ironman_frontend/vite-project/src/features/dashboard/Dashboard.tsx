@@ -2,6 +2,7 @@ import { useAuth } from "../auth/AuthContext";
 import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
 import { Card } from "../../shared/components/reusable-card";
+import { TimeOfDay } from "../../shared/utils/TimeOfDay";
 
 export default function Dashboard() {
     const { user } = useAuth();
@@ -23,7 +24,7 @@ export default function Dashboard() {
                     </section>
                     <section className="min-h-[70vh] flex items-center justify-center">
                         <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
-                            <p className="text-zinc-300 text-xl">Welcome to your dashboard2 {user?.name}!</p>
+                            <p className="text-zinc-300 text-xl">Good {TimeOfDay.TimeOfDay(new Date().getHours())}, {user?.name}!</p>
                         </Card>
                     </section>
                 </div>
