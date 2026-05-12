@@ -7,6 +7,8 @@ type AuthContextType = {
     user: any;
     loading: boolean;
     needsConfirmation: boolean;
+    needsProfileCompletion: boolean;
+    setNeedsProfileCompletion: (value: boolean) => void;
     login: (email: string, password: string) => Promise<void>;
     register: (email: string, password: string) => Promise<void>;
     logout: () => Promise<void>;
@@ -19,6 +21,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [needsConfirmation, setNeedsConfirmation] = useState(false);
+    const [needsProfileCompletion, setNeedsProfileCompletion] = useState(false);
 
     useEffect(() => {
         const init = async () => {
@@ -105,7 +108,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             return;
         }
 
+        // After email is confirmed, set profile completion flag
         setSession(data.session);
+        setNeedsProfileCompletion(true);
     };
 
     const logout = async () => {
@@ -113,11 +118,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setSession(null);
         setUser(null);
         setNeedsConfirmation(false);
+        setNeedsProfileCompletion(false);
     };
 
     return (
         <AuthContext.Provider
-            value={{ session, user, loading, needsConfirmation, login, register, logout }}
+            value={{ session, user, loading, needsConfirmation, needsProfileCompletion, setNeedsProfileCompletion, login, register, logout }}
         >
             {children}
         </AuthContext.Provider>

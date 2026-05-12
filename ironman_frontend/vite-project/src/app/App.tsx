@@ -1,6 +1,7 @@
 import { useAuth } from "../features/auth/AuthContext";
 import Login from "../features/dashboard/login";
 import Dashboard from "../features/dashboard/Dashboard";
+import CompleteProfile from "../features/dashboard/register";
 import { Route, Navigate, Routes } from "react-router-dom";
 import Schedule from "../features/schedule/schedule";
 import Stats from "../features/training/stats";
@@ -22,6 +23,10 @@ export default function App() {
       <Route
         path="/"
         element={<Navigate to={session ? "/dashboard" : "/login"} replace />}
+      />
+      <Route
+        path="/complete-profile"
+        element={session ? <CompleteProfile /> : <Navigate to="/login" replace />}
       />
       <Route
         path="/dashboard"

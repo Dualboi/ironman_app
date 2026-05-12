@@ -4,7 +4,18 @@ import { AuthLayout } from "../../features/components/auth-layout";
 import { LoginCard } from "../../features/components/login-card";
 
 export default function Login() {
-    const { login, register, needsConfirmation } = useAuth();
+    const { login, register, needsConfirmation, needsProfileCompletion } = useAuth();
+    if (needsProfileCompletion) {
+        return (
+            <AuthLayout>
+                <div className="text-zinc-300 text-center">
+                    Redirecting to profile completion...
+                </div>
+            </AuthLayout>
+        );
+    }
+
+
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
