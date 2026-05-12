@@ -1,28 +1,35 @@
 import { useAuth } from "../auth/AuthContext";
 import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
-//import { Card } from "../../shared/components/reusable-card";
-//import { Input } from "../../shared/components/input";
-import { Button } from "../../shared/components/button";
+import { Card } from "../../shared/components/reusable-card";
 
 export default function Dashboard() {
-  const { user, session, logout } = useAuth();
+    const { user } = useAuth();
 
-  return (
-    <div className=" min-h-screen bg-gradient-to-br  from-black via-zinc-900 to-black flex flex-col items-center">
-    <><header className=" font-display text-2xl font-semibold tracking-tight w-full p-4 text-center text-zinc-300 border-b border-zinc-800">
-      IronMan Buddy
-    </header><><><Navbar /><div style={{ padding: 20 }}>
-      <h2>Dashboard</h2>
+    return (
+        <div className="min-h-screen bg-linear-to-br from-black via-zinc-900 to-black flex flex-col">
+            <header className="fixed top-0 left-0 right-0 z-60 h-12 md:h-14 font-display text-2xl font-semibold tracking-tight w-full px-4 flex items-center justify-center text-zinc-300 border-b border-zinc-800 bg-zinc-950/95 backdrop-blur-sm">
+                IronMan Buddy
+            </header>
 
-      <h3 className="text-zinc-300">Backend /me response:</h3>
-      <pre className="text-zinc-300">{JSON.stringify(user, null, 2)}</pre>
+            <Navbar />
 
-      <h3 className="text-zinc-300">JWT preview:</h3>
-      <pre className="text-zinc-300">{session?.access_token?.slice(0, 25)}...</pre>
+            <main className="flex-1 w-full px-4 pt-24 md:pt-28">
+                <div className="w-full max-w-7xl mx-auto py-6 pb-10 space-y-8">
+                    <section className="min-h-[70vh] flex items-center justify-center">
+                        <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
+                            <p className="text-zinc-300 text-xl">Welcome to your dashboard, {user?.name}!</p>
+                        </Card>
+                    </section>
+                    <section className="min-h-[70vh] flex items-center justify-center">
+                        <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
+                            <p className="text-zinc-300 text-xl">Welcome to your dashboard2 {user?.name}!</p>
+                        </Card>
+                    </section>
+                </div>
+            </main>
 
-      <Button variant="primary" className="text-zinc-300" onClick={logout}>Logout</Button>
-    </div></><><Footer /></></></>
-    </div>
-  );
+            <Footer />
+        </div>
+    );
 }

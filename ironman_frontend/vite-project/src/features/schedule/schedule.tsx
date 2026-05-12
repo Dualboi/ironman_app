@@ -3,7 +3,7 @@ import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
 import { Card } from "../../shared/components/reusable-card";
 
-export default function ManageActivitesCard() {
+export default function Schedule() {
     //const { user } = useAuth();
 
     return (
@@ -18,7 +18,7 @@ export default function ManageActivitesCard() {
                 <div className="w-full max-w-7xl mx-auto py-6 pb-10 space-y-8">
                     <section className="min-h-[70vh] flex items-center justify-center">
                         <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
-                            <p className="text-zinc-300 text-xl">Manage Activities</p>
+                            <p className="text-zinc-300 text-xl">Schedule</p>
                         </Card>
                     </section>
                 </div>

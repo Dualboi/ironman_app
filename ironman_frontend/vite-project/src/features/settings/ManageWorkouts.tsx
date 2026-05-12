@@ -3,7 +3,7 @@ import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
 import { Card } from "../../shared/components/reusable-card";
 
-export default function ManageActivitesCard() {
+export default function ManageWorkouts() {
     //const { user } = useAuth();
 
     return (
