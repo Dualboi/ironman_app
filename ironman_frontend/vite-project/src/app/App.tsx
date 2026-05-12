@@ -10,7 +10,7 @@ import ManageWorkouts from "../features/settings/ManageWorkouts";
 export default function App() {
   const { session, loading } = useAuth();
 
-  if (loading) return <body className="bg-zinc-900/70 backdrop-blur-xl"><div>Loading...</div></body>;
+  if (loading) return <body className="bg-zinc-900 backdrop-blur-xl"><div>Loading...</div></body>;
 
   return (
     <Routes>
