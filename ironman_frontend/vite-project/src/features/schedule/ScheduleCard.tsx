@@ -19,8 +19,8 @@ export function ScheduleCard() {
                     type="number"
                     id="distanceGoal"
                     name="distanceGoal"
-                    value={distanceGoal}
-                    onChange={(e) => setDistanceGoal(e.target.value)}
+                    //value={distanceGoal}
+                    //onChange={(e) => setDistanceGoal(e.target.value)}
                     min="1"
                     className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 />
@@ -28,14 +28,14 @@ export function ScheduleCard() {
                     type="number"
                     id="distanceGoal"
                     name="distanceGoal"
-                    value={timeGoal}
-                    onChange={(e) => setTimeGoal(e.target.value)}
+                    //value={timeGoal}
+                    //onChange={(e) => setTimeGoal(e.target.value)}
                     min="1"
                     className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 />
                 <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Optimise"}</Button>
                 <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Fit to Goal"}</Button>
-                <div>
+                <div className="columns-7 md:columns-2 lg:columns-3 gap-4 mt-4">
                     <h3>Monday</h3>
                     <div></div>
                     <h3>Tuesday</h3>
