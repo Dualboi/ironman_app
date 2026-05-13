@@ -1,7 +1,7 @@
 //import { useAuth } from "../auth/AuthContext";
 import { Navbar } from "../../shared/components/navbar";
 import { Footer } from "../../shared/components/footer";
-import { Card } from "../../shared/components/reusable-card";
+import { ScheduleCard } from "../../features/schedule/ScheduleCard.tsx"
 
 export default function Schedule() {
     //const { user } = useAuth();
@@ -17,9 +17,7 @@ export default function Schedule() {
             <main className="flex-1 w-full px-4 pt-24 md:pt-28">
                 <div className="w-full max-w-7xl mx-auto py-6 pb-10 space-y-8">
                     <section className="min-h-[70vh] flex items-center justify-center">
-                        <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
-                            <p className="text-zinc-300 text-xl">Schedule</p>
-                        </Card>
+                        <ScheduleCard/>
                     </section>
                 </div>
             </main>

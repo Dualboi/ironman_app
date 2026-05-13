@@ -29,6 +29,7 @@ router.post("/me", authMiddleware, async (req: AuthenticatedRequest, res) => {
   });
 });
 
+// Setting up profile and registration
 router.post("/profile", authMiddleware, async (req: AuthenticatedRequest, res) => {
   const userId = req.userId!;
   const { name, age, weight, gender } = req.body;
@@ -71,6 +72,7 @@ router.post("/profile", authMiddleware, async (req: AuthenticatedRequest, res) =
   }
 });
 
+// Used for adding and editing sessions
 router.post("/sessions", authMiddleware, async (req: AuthenticatedRequest, res) => {
   const userId = req.userId!;
   const { name, intensity, distanceKm, durationMinutes } = req.body;
@@ -106,7 +108,7 @@ router.post("/sessions", authMiddleware, async (req: AuthenticatedRequest, res) 
     // 3. Create UNSCHEDULED session
     const session = await prisma.session.create({
       data: {
-        userId, // ✅ from auth
+        userId,
         workoutTypeId: workoutType.id,
         intensity: prismaIntensity,
         durationMinutes: Number(durationMinutes),
@@ -127,6 +129,7 @@ router.post("/sessions", authMiddleware, async (req: AuthenticatedRequest, res) 
   }
 });
 
+// Sessio Schedule
 router.post("/schedule-session", authMiddleware, async (req: AuthenticatedRequest, res) => {
   const userId = req.userId!;
   const { sessionId, dayOfWeek } = req.body;
