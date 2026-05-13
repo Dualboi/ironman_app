@@ -1,57 +1,126 @@
 import { Card } from "../../shared/components/reusable-card";
-import { Button } from "../../shared/components/button";
 import { Input } from "../../shared/components/input";
+
+const activities = [
+    "Swim 2,000m Tempo",
+    "Run 14km Zone 2",
+    "Cycle 40km Zone 2",
+    "Cycle 24km Threshold",
+    "Run 8km Tempo",
+    "Swim 2,000m Zone 2",
+    "Hike Threshold",
+    "Strength Training",
+    "Injury Prevention Work",
+];
+
+const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+];
 
 export function ScheduleCard() {
     return (
-        <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
-            <h2 className="text-zinc-300 text-xl">Scheduler</h2>
-            <div>
-                <h3>Activities</h3>
-                <Button>Add more Activities</Button>
-                <Button type="submit" variant="primary" className="w-full md:w-1/3">
-                    {"Add more Activities"}
-                </Button>
-            </div>
-            <div>
-                <h3>Drag and drop Activities into the week</h3>
-                <p>Distance Goal</p>
-                <Input
-                    type="number"
-                    id="distanceGoal"
-                    name="distanceGoal"
-                    //value={distanceGoal}
-                    //onChange={(e) => setDistanceGoal(e.target.value)}
-                    min="1"
-                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                />
-                <p>Time Goal</p>
-                <Input
-                    type="number"
-                    id="timeGoal"
-                    name="timeGoal"
-                    //value={timeGoal}
-                    //onChange={(e) => setTimeGoal(e.target.value)}
-                    min="1"
-                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                />
-                <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Optimise"}</Button>
-                <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Fit to Goal"}</Button>
-                <div className="columns-7 md:columns-7 gap-4 mt-4">
-                    <h3>Monday</h3>
-                    <div></div>
-                    <h3>Tuesday</h3>
-                    <div></div>
-                    <h3>Wednesday</h3>
-                    <div></div>
-                    <h3>Thursday</h3>
-                    <div></div>
-                    <h3>Friday</h3>
-                    <div></div>
-                    <h3>Saturday</h3>
-                    <div></div>
-                    <h3>Sunday</h3>
-                    <div></div>
+        <Card className="mx-auto overflow-hidden" maxWidthClass="max-w-6xl">
+            <div className="space-y-6">
+                <div className="flex items-center justify-between gap-4">
+                    <h2 className="text-3xl font-medium tracking-tight text-zinc-100 sm:text-[2.15rem]">
+                        Scheduler
+                    </h2>
+                </div>
+
+                <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+                    <section className="rounded-3xl border border-white/5 bg-[#232b3d] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                        <h3 className="text-2xl font-light tracking-tight text-zinc-100">
+                            Activities
+                        </h3>
+
+                        <div className="mt-3 max-h-107.5 space-y-3 overflow-y-auto pr-2">
+                            {activities.map((activity) => (
+                                <div
+                                    key={activity}
+                                    className="cursor-grab rounded-md bg-zinc-100 px-3 py-2 text-sm text-zinc-700 shadow-sm transition hover:bg-white"
+                                >
+                                    {activity}
+                                </div>
+                            ))}
+                        </div>
+
+                        <button
+                            type="button"
+                            className="mx-auto mt-5 block rounded-md bg-cyan-400 px-4 py-1.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+                        >
+                            Add more Activities
+                        </button>
+                    </section>
+
+                    <section className="rounded-3xl border border-white/5 bg-[#232b3d] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                        <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
+                            <h3 className="max-w-md text-2xl font-light leading-tight tracking-tight text-zinc-100">
+                                Drag and drop Activities into the week
+                            </h3>
+
+                            <div className="flex flex-col gap-2 xl:items-end">
+                                <div className="flex flex-wrap items-end justify-end gap-2 sm:gap-3">
+                                    <label className="space-y-1">
+                                        <span className="block text-xs font-medium text-zinc-300">
+                                            Distance Goal
+                                        </span>
+                                        <Input
+                                            type="text"
+                                            id="distanceGoal"
+                                            name="distanceGoal"
+                                            placeholder="0.00 km"
+                                            className="h-7 w-20 rounded-sm border-0 bg-zinc-100 px-2 py-1 text-right text-[11px] text-zinc-900 shadow-sm placeholder:text-zinc-500 focus:ring-2 focus:ring-cyan-400/40"
+                                        />
+                                    </label>
+
+                                    <label className="space-y-1">
+                                        <span className="block text-xs font-medium text-zinc-300">
+                                            Time Goal
+                                        </span>
+                                        <Input
+                                            type="text"
+                                            id="timeGoal"
+                                            name="timeGoal"
+                                            placeholder="0:00"
+                                            className="h-7 w-20 rounded-sm border-0 bg-zinc-100 px-2 py-1 text-right text-[11px] text-zinc-900 shadow-sm placeholder:text-zinc-500 focus:ring-2 focus:ring-cyan-400/40"
+                                        />
+                                    </label>
+
+                                    <div className="flex flex-col gap-2 pb-0.5">
+                                        <button
+                                            type="button"
+                                            className="h-7 rounded-md bg-cyan-400 px-4 text-xs font-semibold leading-none text-slate-950 transition hover:bg-cyan-300"
+                                        >
+                                            Optimise
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="h-7 rounded-md bg-cyan-400 px-4 text-xs font-semibold leading-none text-slate-950 transition hover:bg-cyan-300"
+                                        >
+                                            Fit to Goal
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-7">
+                            {days.map((day) => (
+                                <div key={day} className="flex flex-col">
+                                    <h4 className="mb-1 text-lg font-light tracking-tight text-zinc-100">
+                                        {day}
+                                    </h4>
+                                    <div className="min-h-70 rounded-md border border-zinc-200/70 bg-zinc-100 shadow-sm sm:min-h-75" />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
                 </div>
             </div>
         </Card >
