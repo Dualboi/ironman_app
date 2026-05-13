@@ -78,7 +78,7 @@ export function ScheduleCard() {
                                             id="distanceGoal"
                                             name="distanceGoal"
                                             placeholder="0.00 km"
-                                            className="h-7 w-20 rounded-sm border-0 bg-zinc-100 px-2 py-1 text-right text-[11px] text-zinc-900 shadow-sm placeholder:text-zinc-500 focus:ring-2 focus:ring-cyan-400/40"
+                                            className="h-7 w-20 rounded-sm border-0 bg-zinc-100 px-2 py-1 text-right text-[11px] text-zinc-700 shadow-sm placeholder:text-zinc-500 focus:ring-2 focus:ring-cyan-400/40"
                                         />
                                     </label>
 
@@ -91,7 +91,7 @@ export function ScheduleCard() {
                                             id="timeGoal"
                                             name="timeGoal"
                                             placeholder="0:00"
-                                            className="h-7 w-20 rounded-sm border-0 bg-zinc-100 px-2 py-1 text-right text-[11px] text-zinc-900 shadow-sm placeholder:text-zinc-500 focus:ring-2 focus:ring-cyan-400/40"
+                                            className="h-7 w-20 rounded-sm border-0 bg-zinc-100 px-2 py-1 text-right text-[11px] text-zinc-700 shadow-sm placeholder:text-zinc-500 focus:ring-2 focus:ring-cyan-400/40"
                                         />
                                     </label>
 
@@ -99,14 +99,14 @@ export function ScheduleCard() {
                                         <Button
                                             type="button"
                                             variant="primary"
-                                            className="h-7 flex-none px-4 py-0 text-xs leading-none text-slate-950"
+                                            className="h-7 flex-none px-4 py-0 text-xs text-slate-950 flex items-center justify-center"
                                         >
                                             Optimise
                                         </Button>
                                         <Button
                                             type="button"
                                             variant="primary"
-                                            className="h-7 flex-none px-4 py-0 text-xs leading-none text-slate-950"
+                                            className="h-7 flex-none px-4 py-0 text-xs text-slate-950 flex items-center justify-center"
                                         >
                                             Fit to Goal
                                         </Button>
