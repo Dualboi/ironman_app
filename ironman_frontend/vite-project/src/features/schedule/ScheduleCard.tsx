@@ -15,6 +15,7 @@ export function ScheduleCard() {
             </div>
             <div>
                 <h3>Drag and drop Activities into the week</h3>
+                <p>Distance Goal</p>
                 <Input
                     type="number"
                     id="distanceGoal"
@@ -24,10 +25,11 @@ export function ScheduleCard() {
                     min="1"
                     className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 />
+                <p>Time Goal</p>
                 <Input
                     type="number"
-                    id="distanceGoal"
-                    name="distanceGoal"
+                    id="timeGoal"
+                    name="timeGoal"
                     //value={timeGoal}
                     //onChange={(e) => setTimeGoal(e.target.value)}
                     min="1"
@@ -35,7 +37,7 @@ export function ScheduleCard() {
                 />
                 <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Optimise"}</Button>
                 <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Fit to Goal"}</Button>
-                <div className="columns-7 md:columns-2 lg:columns-3 gap-4 mt-4">
+                <div className="columns-7 md:columns-2 gap-4 mt-4">
                     <h3>Monday</h3>
                     <div></div>
                     <h3>Tuesday</h3>
