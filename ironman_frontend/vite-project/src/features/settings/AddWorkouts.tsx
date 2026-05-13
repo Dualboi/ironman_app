@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { apiFetch } from "../auth/api/client.ts";
 import { useAuth } from "../auth/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { Card } from "../../shared/components/reusable-card.tsx";
 import { Button } from "../../shared/components/button.tsx";
+import { Input } from "../../shared/components/input.tsx";
 
 export default function AddWorkouts() {
     const { session } = useAuth();
-    const navigate = useNavigate();
     const [activityName, setActivityName] = useState("");
     const [intensity, setIntensity] = useState("");
     const [distanceKm, setDistanceKm] = useState("");
@@ -37,7 +36,7 @@ export default function AddWorkouts() {
                 }),
             });
 
-            navigate("/schedule");
+            window.location.assign("/schedule");
         } catch (err) {
             setError("Failed to add workout. Please try again.");
             console.error(err);
@@ -54,14 +53,13 @@ export default function AddWorkouts() {
 
                 <div>
                     <label className="block text-zinc-300 mb-1" htmlFor="activityName">Activity Name</label>
-                    <input
+                    <Input
                         type="text"
                         id="activityName"
                         name="activityName"
                         value={activityName}
                         onChange={(e) => setActivityName(e.target.value)}
                         required
-                        className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                 </div>
 
@@ -86,7 +84,7 @@ export default function AddWorkouts() {
 
                 <div>
                     <label className="block text-zinc-300 mb-1" htmlFor="distanceKm">Distance (km)</label>
-                    <input
+                    <Input
                         type="number"
                         id="distanceKm"
                         name="distanceKm"
@@ -95,13 +93,12 @@ export default function AddWorkouts() {
                         required
                         step="0.1"
                         min="0"
-                        className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                 </div>
 
                 <div>
                     <label className="block text-zinc-300 mb-1" htmlFor="durationMinutes">Duration (minutes)</label>
-                    <input
+                    <Input
                         type="number"
                         id="durationMinutes"
                         name="durationMinutes"
@@ -109,7 +106,6 @@ export default function AddWorkouts() {
                         onChange={(e) => setDurationMinutes(e.target.value)}
                         required
                         min="1"
-                        className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                 </div>
 

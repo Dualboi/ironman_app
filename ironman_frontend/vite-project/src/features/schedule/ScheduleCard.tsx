@@ -1,4 +1,5 @@
 import { Card } from "../../shared/components/reusable-card";
+import { Button } from "../../shared/components/button";
 import { Input } from "../../shared/components/input";
 
 const activities = [
@@ -50,12 +51,14 @@ export function ScheduleCard() {
                             ))}
                         </div>
 
-                        <button
+                        <Button
                             type="button"
-                            className="mx-auto mt-5 block rounded-md bg-cyan-400 px-4 py-1.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+                            variant="primary"
+                            className="mx-auto mt-5 flex-none px-4 py-1.5 text-sm text-slate-950"
+                            onClick={() => window.location.assign("/workouts")}
                         >
                             Add more Activities
-                        </button>
+                        </Button>
                     </section>
 
                     <section className="rounded-3xl border border-white/5 bg-[#232b3d] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
@@ -93,18 +96,20 @@ export function ScheduleCard() {
                                     </label>
 
                                     <div className="flex flex-col gap-2 pb-0.5">
-                                        <button
+                                        <Button
                                             type="button"
-                                            className="h-7 rounded-md bg-cyan-400 px-4 text-xs font-semibold leading-none text-slate-950 transition hover:bg-cyan-300"
+                                            variant="primary"
+                                            className="h-7 flex-none px-4 py-0 text-xs leading-none text-slate-950"
                                         >
                                             Optimise
-                                        </button>
-                                        <button
+                                        </Button>
+                                        <Button
                                             type="button"
-                                            className="h-7 rounded-md bg-cyan-400 px-4 text-xs font-semibold leading-none text-slate-950 transition hover:bg-cyan-300"
+                                            variant="primary"
+                                            className="h-7 flex-none px-4 py-0 text-xs leading-none text-slate-950"
                                         >
                                             Fit to Goal
-                                        </button>
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
