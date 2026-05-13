@@ -8,79 +8,82 @@ datasource db {
 }
 
 model User {
-  id        String         @id
-  email     String         @unique
+  id        String   @id
+  email     String   @unique
   name      String
-  createdAt DateTime       @default(now())
+  createdAt DateTime @default(now())
 
-  plans     TrainingPlan[]
-  profile   UserProfile?
+  plans    TrainingPlan[]
+  profile  UserProfile?
+  sessions Session[]
 }
 
 model UserProfile {
-  id         String  @id @default(uuid())
-  userId     String  @unique
+  id         String @id @default(uuid())
+  userId     String @unique
   bodyWeight Float
   age        Int
   gender     Gender
 
-  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model TrainingPlan {
-  id        String         @id @default(uuid())
+  id        String   @id @default(uuid())
   userId    String
   name      String
   goalType  GoalType
   startDate DateTime
   endDate   DateTime
 
-  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  goals     TrainingGoal[]
-  weeks     Week[]
+  user  User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  goals TrainingGoal[]
+  weeks Week[]
 }
 
 model Week {
-  id             String          @id @default(uuid())
+  id             String   @id @default(uuid())
   trainingPlanId String
   weekNumber     Int
   startDate      DateTime
 
-  trainingPlan   TrainingPlan    @relation(fields: [trainingPlanId], references: [id], onDelete: Cascade)
-  sessions       Session[]
-  logs           SuggestionLog[]
+  trainingPlan TrainingPlan    @relation(fields: [trainingPlanId], references: [id], onDelete: Cascade)
+  sessions     Session[]
+  logs         SuggestionLog[]
 }
 
 model WorkoutType {
-  id       String    @id @default(uuid())
-  name     String
+  id   String @id @default(uuid())
+  name String @unique
 
   sessions Session[]
 }
 
 model Session {
-  id              String          @id @default(uuid())
-  weekId          String
+  id              String    @id @default(uuid())
+  userId          String
+  weekId          String?
   workoutTypeId   String
-  dayOfWeek       Int
+  dayOfWeek       Int?
   intensity       Intensity
   durationMinutes Int
   distanceKm      Float?
-  isCompleted     Boolean         @default(false)
+  isCompleted     Boolean   @default(false)
 
-  week            Week            @relation(fields: [weekId], references: [id], onDelete: Cascade)
-  workoutType     WorkoutType     @relation(fields: [workoutTypeId], references: [id])
-  logs            SuggestionLog[]
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  week        Week?           @relation(fields: [weekId], references: [id], onDelete: Cascade)
+  workoutType WorkoutType     @relation(fields: [workoutTypeId], references: [id])
+  logs        SuggestionLog[]
 }
 
 model TrainingGoal {
-  id             String       @id @default(uuid())
+  id             String @id @default(uuid())
   trainingPlanId String
   goalType       String
   targetValue    Float
   unit           String
 
-  trainingPlan   TrainingPlan @relation(fields: [trainingPlanId], references: [id], onDelete: Cascade)
+  trainingPlan TrainingPlan @relation(fields: [trainingPlanId], references: [id], onDelete: Cascade)
 }
 
 model SuggestionLog {
@@ -93,8 +96,8 @@ model SuggestionLog {
   newValue      Json?
   createdAt     DateTime   @default(now())
 
-  session       Session    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-  week          Week       @relation(fields: [weekId], references: [id], onDelete: Cascade)
+  session Session @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  week    Week    @relation(fields: [weekId], references: [id], onDelete: Cascade)
 }
 
 enum Gender {

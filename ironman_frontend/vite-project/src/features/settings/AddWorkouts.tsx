@@ -27,17 +27,17 @@ export default function AddWorkouts() {
         }
 
         try {
-            await apiFetch("/addWorkout", session.access_token, {
+            await apiFetch("/sessions", session.access_token, {
                 method: "POST",
                 body: JSON.stringify({
                     name: activityName,
-                    intensity: parseInt(intensity),
+                    intensity: intensity,
                     distanceKm: parseFloat(distanceKm),
                     durationMinutes: parseInt(durationMinutes),
                 }),
             });
 
-            navigate("//schedule");
+            navigate("/schedule");
         } catch (err) {
             setError("Failed to add workout. Please try again.");
             console.error(err);
