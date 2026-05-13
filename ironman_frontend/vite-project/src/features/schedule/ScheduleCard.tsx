@@ -37,7 +37,7 @@ export function ScheduleCard() {
                 />
                 <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Optimise"}</Button>
                 <Button type="submit" variant="primary" className="w-full md:w-1/3">{"Fit to Goal"}</Button>
-                <div className="columns-7 md:columns-2 gap-4 mt-4">
+                <div className="columns-7 md:columns-7 gap-4 mt-4">
                     <h3>Monday</h3>
                     <div></div>
                     <h3>Tuesday</h3>
