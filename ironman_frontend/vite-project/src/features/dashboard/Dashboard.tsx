@@ -7,6 +7,9 @@ import { TimeOfDay } from "../../shared/utils/TimeOfDay";
 export default function Dashboard() {
     const { user } = useAuth();
 
+    const str = user?.name;
+    const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+
     return (
         <div className="min-h-screen bg-linear-to-br from-black via-zinc-900 to-black flex flex-col">
             <header className="fixed top-0 left-0 right-0 z-60 h-12 md:h-14 font-display text-2xl font-semibold tracking-tight w-full px-4 flex items-center justify-center text-zinc-300 border-b border-zinc-800 bg-zinc-950/95 backdrop-blur-sm">
@@ -19,12 +22,12 @@ export default function Dashboard() {
                 <div className="w-full max-w-7xl mx-auto py-6 pb-10 space-y-8">
                     <section className="min-h-[70vh] flex items-center justify-center">
                         <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
-                            <p className="text-zinc-300 text-xl">Welcome to your dashboard, {user?.name}!</p>
+                            <p className="text-zinc-300 text-xl">Welcome to your dashboard, {capitalized}!</p>
                         </Card>
                     </section>
                     <section className="min-h-[70vh] flex items-center justify-center">
                         <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
-                            <p className="text-zinc-300 text-xl">Good {TimeOfDay.TimeOfDay(new Date().getHours())}, {user?.name}!</p>
+                            <p className="text-zinc-300 text-xl">Good {TimeOfDay.TimeOfDay(new Date().getHours())}, {capitalized}!</p>
                         </Card>
                     </section>
                 </div>
