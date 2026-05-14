@@ -21,6 +21,7 @@ export default function Dashboard() {
             <main className="flex-1 w-full px-4 pt-24 md:pt-28">
                 <div className="w-full max-w-7xl mx-auto py-6 pb-10 space-y-8">
                     <section className="min-h-[70vh] flex items-center justify-center">
+                        <h1>Ironman training made easy</h1>
                         <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
                             <p className="text-zinc-300 text-xl">Welcome to your dashboard, {capitalized}!</p>
                         </Card>
