@@ -19,7 +19,7 @@ export default function Dashboard() {
             <Navbar />
 
             <main className="flex-1 w-full px-4 pt-24 md:pt-28">
-                <h1 className="w-full text-xl max-w-7xl mx-auto py-2 pb-2 flex items-center justify-center tracking-tight text-center">Ironman training made easy</h1>
+                <h1 className="w-full text-xl max-w-7xl mx-auto pt-3 flex items-center justify-center tracking-tight text-center">Ironman training made easy</h1>
                 <div className="w-full max-w-7xl mx-auto py-6 pb-10 space-y-8">
                     <section className="min-h-[70vh] flex items-center justify-center">
                         <Card className="mx-auto text-center" maxWidthClass="max-w-4xl">
